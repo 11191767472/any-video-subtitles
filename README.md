@@ -3,6 +3,10 @@
 一个开源的 Chrome 扩展（Manifest V3，原生 JS、零依赖）：给**任意网页上的 `<video>`** 手动加载、编辑、打轴和调校字幕。功能对标 Substital / +Sub 这类「任意网页视频挂字幕」工具。
 
 ![license](https://img.shields.io/badge/license-MIT-green)
+![manifest](https://img.shields.io/badge/manifest-V3-blue)
+![deps](https://img.shields.io/badge/dependencies-0-brightgreen)
+
+**仓库**：<https://github.com/11191767472/any-video-subtitles>
 
 ## 安装（开发者模式加载）
 
