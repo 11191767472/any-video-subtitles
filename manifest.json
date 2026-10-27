@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "任意视频字幕 · Any Video Subtitles",
+  "version": "1.0.0",
+  "description": "给任意网页视频手动加载、打轴、编辑和调校字幕，支持 SRT / VTT / ASS / 纯文本。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "activeTab", "tabs"],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "任意视频字幕"
+  },
+  "background": {
+    "service_worker": "src/sw.js"
+  },
+  "commands": {
+    "toggle-panel": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "打开 / 关闭字幕面板"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>", "file:///*"],
+      "js": [
+        "src/lib/parser.js",
+        "src/content/overlay.js",
+        "src/content/panel.js",
+        "src/content/content.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>任意视频字幕</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <span class="dot"></span>
+      <b>任意视频字幕</b>
+    </header>
+
+    <section class="row between">
+      <span>启用插件</span>
+      <label class="sw"><input type="checkbox" id="enabled" /><i></i></label>
+    </section>
+
+    <section>
+      <div class="lb">默认样式（新视频）</div>
+      <div class="row">
+        <span class="k">字号</span>
+        <input type="range" id="rel" min="2" max="14" step="0.1" />
+        <span class="v" id="relV"></span>
+      </div>
+      <div class="row">
+        <span class="k">文字</span>
+        <input type="color" id="color" />
+        <label class="ck"><input type="checkbox" id="outline" />描边</label>
+        <label class="ck"><input type="checkbox" id="bgOn" />底衬</label>
+        <input type="color" id="bg" />
+      </div>
+      <button class="b" id="apply">应用到当前已打开页面</button>
+    </section>
+
+    <section>
+      <div class="lb">字幕库</div>
+      <div class="row between">
+        <span id="libCount">0 个视频的字幕</span>
+        <button class="b danger" id="clear">清空</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="lb">快捷键</div>
+      <div class="keys">
+        <div><kbd>Alt</kbd>+<kbd>Z</kbd> 打点（上一句收尾并开新句）</div>
+        <div><kbd>Alt</kbd>+<kbd>X</kbd> 结束当前句</div>
+        <div><kbd>Alt</kbd>+<kbd>←</kbd>/<kbd>→</kbd> 字幕提前 / 延后 250ms</div>
+        <div><kbd>Alt</kbd>+<kbd>A</kbd> 当前字幕起点对齐此刻</div>
+        <div><kbd>Alt</kbd>+<kbd>P</kbd> 播放 / 暂停</div>
+        <div><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> 开关面板</div>
+      </div>
+    </section>
+
+    <footer>
+      <button class="b pri" id="open">在当前页面打开面板</button>
+      <p class="tip">
+        面板上的「保存」会把字幕按「站点 + 视频时长 + 源指纹」存档，下次打开同一视频自动加载。
+      </p>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

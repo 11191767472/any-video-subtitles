@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>字幕插件本地测试页</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        background: #f4f5f7;
+        margin: 0;
+        padding: 32px;
+        color: #222;
+      }
+      h1 {
+        font-size: 18px;
+      }
+      video {
+        width: 720px;
+        max-width: 100%;
+        border-radius: 10px;
+        background: #000;
+      }
+      .tip {
+        background: #fff;
+        border: 1px solid #e2e4e8;
+        border-radius: 10px;
+        padding: 14px 18px;
+        max-width: 720px;
+        line-height: 1.7;
+        font-size: 13.5px;
+      }
+      kbd {
+        padding: 1px 5px;
+        border: 1px solid #ccc;
+        border-bottom-width: 2px;
+        border-radius: 4px;
+        background: #fafafa;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>字幕插件本地测试页</h1>
+    <video controls playsinline src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" crossorigin></video>
+    <div class="tip">
+      <p>装好插件后刷新本页，按 <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> 呼出面板：</p>
+      <ol>
+        <li>「选择文件」加载一个 .srt / .vtt / .ass，立刻叠在视频上；</li>
+        <li>用「同步 ±」按钮微调时间轴，「对齐当前」一键把当前句起点对齐到此刻；</li>
+        <li>点「开始打轴」，边播边按 <kbd>Alt</kbd>+<kbd>Z</kbd> 给每句打点，试试从零做一份字幕；</li>
+        <li>「保存到本视频」后刷新页面，字幕应自动恢复。</li>
+      </ol>
+      <p>
+        也可以再开一个有视频的网页（B 站、YouTube…）试任意网页通用性。
+        测试字幕：<a href="sample.srt" download>sample.srt</a>
+      </p>
+    </div>
+  </body>
+</html>
