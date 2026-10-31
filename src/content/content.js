@@ -235,9 +235,10 @@
     if (i < 0 || i >= App.videos.length) return;
     if (i !== App.index) {
       App.index = i;
-      App.videos.forEach((v, k) => v.overlay.setSelected(k === i));
       refreshKey();
     }
+    // 蓝框只在用户主动选（面板下拉）时闪一下；自动识别 / 播放自动跟随都是 silent，不打扰
+    App.videos.forEach((v, k) => v.overlay.setSelected(k === i && !silent));
     if (!silent) App.userPicked = true;
     if (App.panel) App.panel.sync();
   }

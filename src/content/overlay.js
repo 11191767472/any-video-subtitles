@@ -126,8 +126,18 @@
       this.el.style.fontSize = Math.max(10, (h * this.style.rel) / 100) + 'px';
     }
 
-    setSelected(on) {
-      this.wrap.classList.toggle('sel', !!on);
+    /**
+     * 蓝框只在「选中切换的瞬间」闪一下（约 1.2s 后淡出），不常驻。
+     * 常驻描边会一直压在画面上，用户明确要求去掉；保留瞬时提示是为了切视频时知道选中了谁。
+     */
+    setSelected(on, holdMs) {
+      clearTimeout(this._selT);
+      if (!on) {
+        this.wrap.classList.remove('sel');
+        return;
+      }
+      this.wrap.classList.add('sel');
+      this._selT = setTimeout(() => this.wrap.classList.remove('sel'), holdMs || 1200);
     }
 
     applyStyle(s) {
@@ -177,6 +187,7 @@
     destroy() {
       cancelAnimationFrame(this._raf);
       clearTimeout(this._toastT);
+      clearTimeout(this._selT);
       document.removeEventListener('fullscreenchange', this._onFs, true);
       document.removeEventListener('webkitfullscreenchange', this._onFs, true);
       this.host.remove();
